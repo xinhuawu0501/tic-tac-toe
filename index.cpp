@@ -41,7 +41,7 @@ int main(){
         do{
             printf("Player %d enter [row] [col] you want to move to: ", currentPlayer);
             scanf("%d %d", &i, &j);
-        }while((i < 0 || i >= ROW) || (j < 0 || j >= COL));
+        }while((i < 0 || i >= ROW) || (j < 0 || j >= COL) || board[i][j] != 0);
 
         board[i][j] = currentPlayer;
         
@@ -88,6 +88,8 @@ int detectWin(int board[ROW][COL]){
     //check row
     for(int i = 0; i < ROW; i++){
         int start = board[i][0];
+        //empty cell
+        if(start == 0) continue;
         bool isSame = true;
         for(int j = 0; j < COL; j++){
             if(board[i][j] != start){
@@ -101,6 +103,8 @@ int detectWin(int board[ROW][COL]){
     //check col
     for(int j = 0; j < COL; j++){
         int start = board[0][j];
+        //empty cell
+        if(start == 0) continue;
         bool isSame = true;
         for(int i = 0; i < ROW; i++){
             if(board[i][j] != start) {
