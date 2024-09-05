@@ -35,11 +35,13 @@ int main(){
 
 
     while(moveCounter < MAX_MOVE){
-        int i, j;
+        int i, j = -1;
 
-        //TODO: validate i & j
-        printf("Player %d enter [row] [col] you want to move to: ", currentPlayer);
-        scanf("%d %d", &i, &j);
+        //validate i & j
+        do{
+            printf("Player %d enter [row] [col] you want to move to: ", currentPlayer);
+            scanf("%d %d", &i, &j);
+        }while((i < 0 || i >= ROW) || (j < 0 || j >= COL));
 
         board[i][j] = currentPlayer;
         
