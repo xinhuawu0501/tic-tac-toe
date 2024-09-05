@@ -10,8 +10,21 @@ void printBoard(int board[ROW][COL]);
 
 int main(){
     int board[ROW][COL] = {0};
+    const int PLAYER1 = 1;
+    const int PLAYER2 = 2;
+
+    int input = -1;
+    int currentPlayer;
 
     printBoard(board);
+
+    do{
+        printf("Please enter first player:");
+        scanf("%d", &input);
+    }while(input == -1 || (input != PLAYER1 && input != PLAYER2));
+
+    currentPlayer = input;
+
      
     return 0;
 }
